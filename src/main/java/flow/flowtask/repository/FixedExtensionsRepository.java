@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface FixedExtensionsRepository extends JpaRepository<FixedExtension, String> {
-    FixedExtension findByExtensionName(String extensionName);
-
+    FixedExtension findByFeName(String feName);
 
 }

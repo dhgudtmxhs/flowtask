@@ -1,10 +1,7 @@
 package flow.flowtask.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,9 +16,9 @@ public class FixedExtension {
 
     @Id
     @Column(name = "FE_EXTENSION_NAME")
-    private String extensionName;
+    private String feName;
 
     @Column(name = "FE_CHECKED_FL")
-    private boolean isFeChecked;
+    private boolean feChecked;
 
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>파일 확장자 차단_오형석</title>
 
-    <link rel="stylesheet" th:href="@{/css/flowTask.css}">
+    <link rel="stylesheet" th:href="@{/css/flow-task.css}">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -33,11 +33,6 @@
 
         </div>
 
-
-
-
-
-
         <div id="custom-extension-div" class="divs">
 
             <p class="titles" id="custom-title">커스텀 확장자</p>
@@ -45,23 +40,25 @@
             <div id="custom-boxes">
 
                 <div id="custom-input-button">
+
                     <input type="text" id="custom-input" placeholder="확장자 입력" maxlength="20">
                     <button type="submit" id="custom-add-button">+추가</button>
                 </div>
 
                 <div id="add-custom-extension-box">
-                    3/200
+                    <p id="customCount">0 / 200</p> <!-- ajax로 증감 -->
+                    <div id="customExtensionsList"></div> <!-- 확장자를 추가할 목록 엘리먼트 -->
                 </div>
-
             </div>
 
 
         </div>
 
+        <input type="file" onchange="validateFile(this)">
 
     </div>
 
-    <script src="/js/flowTask.js"></script>
-
+    <script src="/js/Fixed-extension.js"></script>
+    <script src="/js/custom-extension.js"></script>
 </body>
 </html>

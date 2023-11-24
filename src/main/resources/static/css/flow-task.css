@@ -85,3 +85,36 @@
 input[name="fixed-extension"]{
     margin-right: 3px;
 }
+
+#customCount{
+    margin:4px 4px;
+    color:#888;
+}
+
+#customExtensionsList{
+    margin-top:5px;
+    display:flex;
+    flex-wrap: wrap; /* 가로 넘치면 세로로 */
+    overflow: auto; /* 세로 넘치면 스크롤 바 */
+}
+
+.extension-item{
+    display:flex;
+    margin-left: 5px;
+    border: 1px solid #888;
+    min-width: 40px;
+    margin-bottom: 5px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    color: #888;
+    font-size: 0.9em;
+    line-height: 24px;
+}
+
+.delete-button{
+    color: black;
+    margin-left: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: 545;
+}
