@@ -1,0 +1,87 @@
+* {box-sizing: border-box;}
+
+
+#div-container{
+    display:flex;
+    flex-direction:column;
+    height:1000px;
+    justify-content: center;
+    align-items: center;
+    border:2px solid lightgray;
+}
+
+.divs{
+    width:600px;
+}
+
+#fixed-extension-div{
+    display:flex;
+    align-items: center;
+}
+
+#fixed-extension-div label, #fixed-extension-div input{
+    cursor:pointer;
+}
+
+#labels-container{
+    display:flex;
+    width:450px;
+    justify-content: space-between;
+}
+
+#title{
+    height:65px;
+    border-bottom: 2px solid black;
+    margin-bottom: 0;
+    line-height: 60px;
+}
+
+.titles{
+    font-weight: bold;
+    color: #888;
+    width:150px;
+}
+
+#custom-extension-div{
+    display:flex;
+    height:300px;
+}
+
+#custom-title{
+    margin-top:3px;
+}
+
+#custom-input-button{
+    height:30px;
+    display:flex;
+}
+
+#custom-input{
+    height:90%;
+    outline: none;
+    width:200px;
+    border:1px solid #888;
+    border-radius: 5px;
+}
+
+#custom-add-button{
+    height:90%;
+    cursor: pointer;
+    border:0;
+    border-radius: 5px;
+    color:white;
+    background-color: #888;
+    margin-left: 5px;
+}
+
+#add-custom-extension-box{
+    width:450px;
+    height:260px;
+    border:1px solid #888;
+    border-radius: 5px;
+    margin-top:5px;
+}
+
+input[name="fixed-extension"]{
+    margin-right: 3px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>파일 확장자 차단_오형석</title>
+
+    <link rel="stylesheet" th:href="@{/css/flowTask.css}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div id="div-container">
+
+        <div class="divs" >
+            <h1 id="title" >◎ 파일 확장자 차단</h1>
+        </div>
+
+        <div id="fixed-extension-div" class="divs">
+
+            <p class="titles">고정 확장자</p>
+
+            <div id="labels-container">
+                <label for="bat"><input type="checkbox" id="bat" name="fixed-extension" value="bat"> bat</label>
+                <label for="cmd"><input type="checkbox" id="cmd" name="fixed-extension" value="cmd"> cmd</label>
+                <label for="com"><input type="checkbox" id="com" name="fixed-extension" value="com"> com</label>
+                <label for="cpl"><input type="checkbox" id="cpl" name="fixed-extension" value="cpl"> cpl</label>
+                <label for="exe"><input type="checkbox" id="exe" name="fixed-extension" value="exe"> exe</label>
+                <label for="scr"><input type="checkbox" id="scr" name="fixed-extension" value="scr"> scr</label>
+                <label for="js"><input type="checkbox" id="js" name="fixed-extension" value="js"> js</label>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div id="custom-extension-div" class="divs">
+
+            <p class="titles" id="custom-title">커스텀 확장자</p>
+
+            <div id="custom-boxes">
+
+                <div id="custom-input-button">
+                    <input type="text" id="custom-input" placeholder="확장자 입력" maxlength="20">
+                    <button type="submit" id="custom-add-button">+추가</button>
+                </div>
+
+                <div id="add-custom-extension-box">
+                    3/200
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <script src="/js/flowTask.js"></script>
+
+</body>
+</html>
