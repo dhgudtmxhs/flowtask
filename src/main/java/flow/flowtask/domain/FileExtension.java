@@ -1,6 +1,5 @@
 package flow.flowtask.domain;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,14 +9,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "CUSTOM_EXTENSIONS")
+@Table(name = "FILE_EXTENSIONS")
 @Getter
 @Setter
 @ToString
-public class CustomExtension {
+public class FileExtension {
 
     @Id
-    @Column(name = "CT_EXTENSION_NAME")
-    private String ceName;
+    @Column(name = "FILE_EXTENSION_NAME")
+    private String fileName;
 
 }

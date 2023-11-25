@@ -5,10 +5,10 @@
     <title>파일 확장자 차단_오형석</title>
 
     <link rel="stylesheet" th:href="@{/css/flow-task.css}">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
     <div id="div-container">
@@ -43,22 +43,39 @@
 
                     <input type="text" id="custom-input" placeholder="확장자 입력" maxlength="20">
                     <button type="submit" id="custom-add-button">+추가</button>
+
                 </div>
 
                 <div id="add-custom-extension-box">
-                    <p id="customCount">0 / 200</p> <!-- ajax로 증감 -->
-                    <div id="customExtensionsList"></div> <!-- 확장자를 추가할 목록 엘리먼트 -->
-                </div>
-            </div>
 
+                    <p id="customCount" th:text="${firstCount} + ' / 200'">0 / 200</p>
+
+                    <div id="customExtensionsList">
+
+                        <div th:each="customExtension : ${customExtensions}" class="extension-item">
+
+                            <span th:text="${customExtension}" class="extension-text"></span>
+                            <span class="delete-button" onclick="deleteExtension(this.parentElement)">X</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <input type="file" onchange="validateFile(this)">
+        <div id="fileDiv">
+            <input type="file" onchange="validateFile(this)">
+        </div>
 
     </div>
 
-    <script src="/js/Fixed-extension.js"></script>
+    <script src="/js/fixed-extension.js"></script>
     <script src="/js/custom-extension.js"></script>
+    <script src="/js/file-extension.js"></script>
+
 </body>
 </html>

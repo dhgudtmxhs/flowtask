@@ -1,13 +1,11 @@
 * {box-sizing: border-box;}
 
-
 #div-container{
     display:flex;
     flex-direction:column;
-    height:1000px;
+    height:1200px;
     justify-content: center;
     align-items: center;
-    border:2px solid lightgray;
 }
 
 .divs{
@@ -117,4 +115,9 @@ input[name="fixed-extension"]{
     font-size: 1.2em;
     cursor: pointer;
     font-weight: 545;
+}
+
+#fileDiv{
+    margin-right:45px;
+    margin-top:5px;
 }

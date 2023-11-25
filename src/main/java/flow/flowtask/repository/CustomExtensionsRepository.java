@@ -9,6 +9,5 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CustomExtensionsRepository extends JpaRepository<CustomExtension, String> {
     CustomExtension save(CustomExtension customExtension);
-
     void deleteByCeName(String ceName);
 }

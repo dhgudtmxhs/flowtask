@@ -1,8 +1,9 @@
 package flow.flowtask.service;
 
+import flow.flowtask.domain.FileExtension;
 import flow.flowtask.domain.FixedExtension;
+import flow.flowtask.repository.FileExtensionRepository;
 import flow.flowtask.repository.FixedExtensionsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,14 +14,16 @@ import java.util.List;
 public class FixedExtensionService {
 
     private final FixedExtensionsRepository fixedExtensionsRepository;
+    private final FileExtensionRepository fileExtensionRepository;
 
-    @Autowired
-    public FixedExtensionService(FixedExtensionsRepository fixedExtensionsRepository) {
+    public FixedExtensionService(FixedExtensionsRepository fixedExtensionsRepository, FileExtensionRepository fileExtensionRepository) {
         this.fixedExtensionsRepository = fixedExtensionsRepository;
+        this.fileExtensionRepository = fileExtensionRepository;
     }
 
-    public boolean isFixedExtensionDuplicate(String ceName) {
-        // 고정 확장자 테이블에서 모든 확장자 가져오기
+    // 고정 확장자 전부 가져와서 커스텀 확장자와 비교
+    public boolean FeDuplicate(String ceName) {
+
         List<FixedExtension> fixedExtensions = fixedExtensionsRepository.findAll();
 
         // 고정확장자와의 중복 체크
@@ -34,41 +37,32 @@ public class FixedExtensionService {
         return false; // 중복 없음
     }
 
-
-    public String toggleCheck(String feName, boolean isChecked) {
+    // 고정 확장자 삽입
+    public void insertFeExtension(String feName, boolean isChecked) {
 
         // 고정 확장자 찾기
         FixedExtension fixedExtension = fixedExtensionsRepository.findByFeName(feName);
-
-        String tn = null;
 
         if (fixedExtension != null) {
 
             System.out.println("클릭한 확장자 : " + fixedExtension.toString());
 
-            // 엔티티 필드값 변경
-            fixedExtension.setFeChecked(isChecked); //
+            fixedExtension.setFeChecked(isChecked); // 객체에 set
 
-            System.out.println("set함" + fixedExtension);
+            fixedExtensionsRepository.save(fixedExtension); // fe db에 update
 
-            // DB 저장 -> Transactionl commit
-            fixedExtensionsRepository.save(fixedExtension);
+            String trueFeName = fixedExtension.getFeName();
 
-            System.out.println("save함" + fixedExtension);
+            if(isChecked){
 
-            tn = fixedExtension.getFeName();
+                FileExtension fileExtension = new FileExtension();
+                fileExtension.setFileName(trueFeName);
 
-            fixedExtensionsRepository.findAll();
+                fileExtensionRepository.save(fileExtension);
 
-            System.out.println("tn : " + tn);
-
-            System.out.println("업데이트된 확장자 : " + fixedExtension.toString());
-
+            }else{
+                fileExtensionRepository.deleteByFileName(trueFeName);
+            }
         }
-
-        return tn;
     }
-
-
-
 }
