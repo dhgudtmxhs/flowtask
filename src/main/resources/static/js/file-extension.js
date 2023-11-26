@@ -1,6 +1,4 @@
-// 파일 확장자 차단
 function validateFile(fileInput) {
-
     // 파일 확장자 테이블의 컬럼 가져오기
     $.ajax({
         type: 'GET',
@@ -12,13 +10,11 @@ function validateFile(fileInput) {
             const file = fileInput.files[0];
 
             if (file) {
-
                 const extensionsArray = allowedExtensions.split('|');
-                const escapedExtensions = extensionsArray.map(extension => `.${extension}`).join('|'); // .jpg|.bmp|.jpeg 로 만들기
+               // 파일 이름에서 확장자 추출
+                const fileExtension = file.name.split('.').pop(); // asdf.jpg 에서 jpg
 
-                const extensionRegExp = new RegExp(`(${escapedExtensions})$`, 'i');
-
-                if (!extensionRegExp.test(file.name)) {
+                if (!extensionsArray.includes(fileExtension)) {
                     alert("허락된 확장자 파일입니다.");
                 } else {
                     fileInput.value = "";
