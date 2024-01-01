@@ -20,7 +20,6 @@ public class FixedExtensionController {
         this.feExtensionService = feExtensionService;
     }
 
-
     // 체크박스 값 삽입, check 값 설정
     @PostMapping("insert-fe-extension")
     public ResponseEntity<Map<String, Boolean>> insertFeExtension(@RequestBody Map<String, Object> requestBody) {

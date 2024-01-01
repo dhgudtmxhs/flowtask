@@ -41,7 +41,7 @@ customAddButton.on("click", () => {
 // 커스텀 확장자 삽입
 function insertCtExtension(customExtension) {
     $.ajax({
-        url: "/api/custom-extensions/insert-ct-extension",
+        url: "/api/custom-extensions/insert-ct-extension", // restapi 지키지 못했음
         method: "POST",
         data: { ceName: customExtension },
         success: function(response) {
@@ -79,7 +79,6 @@ function getCount() {
 
 // 동적 커스텀 확장자 추가
 function addExtensionToDisplay(customExtension) {
-
 
     const extensionsList = $("#customExtensionsList");
     const extensionElement = $("<div class='extension-item'></div>")

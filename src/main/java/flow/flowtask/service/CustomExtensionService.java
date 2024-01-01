@@ -79,6 +79,7 @@ public class CustomExtensionService {
      * @return
      */
     public List<String> getAllExtensions() {
+
         List<CustomExtension> customExtensions = customExtensionsRepository.findAll();
 
         List<String> extensionNames = new ArrayList<>();

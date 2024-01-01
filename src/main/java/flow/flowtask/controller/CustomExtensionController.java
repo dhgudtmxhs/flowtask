@@ -79,15 +79,15 @@ public class CustomExtensionController {
 
         boolean deleteFl = customExtensionService.deleteCtExtension(ceName);
 
-        if (deleteFl) {
+            if (deleteFl) {
 
-            fileExtensionService.deleteFileExtension(ceName);
+                fileExtensionService.deleteFileExtension(ceName);
 
-            return ResponseEntity.ok("확장자가 성공적으로 삭제되었습니다.");
+                return ResponseEntity.ok("확장자가 성공적으로 삭제되었습니다.");
 
-        } else {
+            } else {
 
-            return ResponseEntity.badRequest().body("확장자 삭제 중에 오류가 발생했습니다.");
+                return ResponseEntity.badRequest().body("확장자 삭제 중에 오류가 발생했습니다.");
 
         }
 
