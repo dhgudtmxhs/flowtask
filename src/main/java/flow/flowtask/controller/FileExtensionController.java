@@ -29,8 +29,6 @@ public class FileExtensionController {
     @GetMapping("/get-allowed-extensions")
     public ResponseEntity<Map<String, String>> getAllowedExtensions() {
 
-        Bcrypt
-
         List<FileExtension> fileExtensions = fileExtensionService.getAllowedExtensions();
 
         StringBuilder extensionsStringBuilder = new StringBuilder();
